@@ -24,7 +24,7 @@ public class PaymentsController {
     }
 
     @PostMapping("/pay")
-    public  void pay(@RequestParam("account_id") Long accountId){
+    public void pay(@RequestParam("account_id") Long accountId){
         log.info("Received request to do payment for {}", accountId);
         paymentService.pay(accountId);
     }
