@@ -18,7 +18,7 @@ public class PaymentService {
 
     private static final BigDecimal paymentAmount = new BigDecimal ("1.1");
     private final TransactionAccountRepository transactionAccountRepository;
-    private TransactionRepository transactionRepository;
+    private final TransactionRepository transactionRepository;
 
 
     @Autowired

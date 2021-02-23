@@ -7,11 +7,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TransactionAccount {
 
     @Id
@@ -19,6 +23,9 @@ public class TransactionAccount {
     private Long id;
     private BigDecimal balance;
     private String username;
+
+    @OneToMany(mappedBy="transactionAccount")
+    private List<Transaction> transactions = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -36,11 +43,11 @@ public class TransactionAccount {
         this.balance = balance;
     }
 
-    public String getUsername() {
-        return username;
+    public List<Transaction> getTransactions() {
+        return transactions;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }
